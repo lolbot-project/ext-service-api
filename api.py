@@ -21,6 +21,14 @@ urban_headers = {
     'Accept': 'application/json'
 }
 
+@app.route("/")
+def root():
+    res = {
+            'message': 'Welcome to flsk!',
+            'source': 'https://github.com/tilda/flsk',
+            'thanks': 'for visiting!'
+          }
+
 @app.route("/api/joke")
 def joke():
     jok = requests.get('https://icanhazdadjoke.com', headers=dad_headers)
