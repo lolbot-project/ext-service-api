@@ -4,8 +4,8 @@ import requests
 from raven.contrib.flask import Sentry
 secret_sentry = open('./secrets/sentry')
 secret_udic = open('./secrets/urban')
-sentry = Sentry(app, dsn=secret_sentry.read())
 app = flask.Flask(__name__)
+sentry = Sentry(app, dsn=secret_sentry.read())
 
 dad_headers = {
     'Accept': 'text/plain',
