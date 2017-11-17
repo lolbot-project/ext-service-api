@@ -45,3 +45,6 @@ def urban(word):
     else:
         res = {'error': u.status}
         return json.dumps(res)
+
+if __name__ == '__main__':
+    app.run()
