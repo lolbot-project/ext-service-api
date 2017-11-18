@@ -1,6 +1,6 @@
 import flask
-import json
 import requests
+from flask import jsonify
 from raven.contrib.flask import Sentry
 secret_sentry = open('./secrets/sentry')
 secret_udic = open('./secrets/urban')
@@ -17,7 +17,7 @@ uagent = {
 }
 
 urban_headers = {
-    'X-Mashape-Key': secret_udic.read(),
+    'X-Mashape-Key': secret_udic.read().rstrip(),
     'Accept': 'application/json'
 }
 
@@ -28,7 +28,7 @@ def root():
             'source': 'https://github.com/tilda/flsk',
             'thanks': 'for visiting!'
           }
-
+    return jsonify(res)
 @app.route("/api/joke")
 def joke():
     jok = requests.get('https://icanhazdadjoke.com', headers=dad_headers)
@@ -42,17 +42,15 @@ def neko():
 @app.route("/api/urban/<word>")
 def urban(word):
     u = requests.get('https://mashape-community-urban-dictionary.p.mashape.com/define?term={0}'.format(word), headers=urban_headers)
-    if u.status == 200:
+    if u.status_code == 200:
         d = u.json()
         d = d['list'][0]
         res = {
             'definition': d['definition'],
             'link': d['permalink']
         }
-        return json.dumps(res)
+        return jsonify(res)
     else:
-        res = {'error': u.status}
-        return json.dumps(res)
+        res = {'error': u.status_code}
+        return jsonify(res), u.status_code
 
-if __name__ == '__main__':
-    app.run()
