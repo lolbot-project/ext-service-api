@@ -1,2 +1,5 @@
 # Sentry data
 secrets
+
+# Fucking cache...
+__pycache__

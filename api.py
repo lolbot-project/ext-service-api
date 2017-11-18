@@ -57,6 +57,3 @@ def urban(word):
         res = {'error': u.status_code}
         print(u.text)
         return jsonify(res), u.status_code
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0')
