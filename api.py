@@ -18,6 +18,7 @@ uagent = {
 
 urban_headers = {
     'X-Mashape-Key': secret_udic.read().rstrip(),
+    'X-Mashape-Host': 'mashape-community-urban-dictionary.p.mashape.com',
     'Accept': 'application/json'
 }
 
