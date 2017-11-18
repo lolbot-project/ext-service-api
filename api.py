@@ -49,6 +49,8 @@ def urban(word):
         res = {
             'definition': d['definition'],
             'link': d['permalink']
+            'thumbs_up': d['thumbs_up'],
+            'thumbs_down': d['thumbs_down']
         }
         return jsonify(res)
     else:
