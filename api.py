@@ -53,6 +53,6 @@ def urban(word):
         return jsonify(res)
     else:
         res = {'error': u.status_code}
-        print(res.text)
+        print(u.text)
         return jsonify(res), u.status_code
 
