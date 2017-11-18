@@ -58,3 +58,5 @@ def urban(word):
         print(u.text)
         return jsonify(res), u.status_code
 
+if __name__ = '__main__':
+    app.run()
