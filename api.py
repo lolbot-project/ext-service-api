@@ -48,7 +48,7 @@ def urban(word):
         d = d['list'][0]
         res = {
             'definition': d['definition'],
-            'link': d['permalink']
+            'link': d['permalink'],
             'thumbs_up': d['thumbs_up'],
             'thumbs_down': d['thumbs_down']
         }
