@@ -2,3 +2,4 @@ Flask
 raven
 raven[flask]
 requests
+blinker
