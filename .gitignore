@@ -3,3 +3,6 @@ secrets
 
 # Fucking cache...
 __pycache__
+
+# venv
+env
