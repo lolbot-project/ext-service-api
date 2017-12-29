@@ -49,7 +49,7 @@ def urban(word):
         if d['list']:
             d = d['list'][0]
         else:
-            res = {'error': 'NotFound'}
+            res = {'error': 404}
             return jsonify(res), 404
 
         res = {
