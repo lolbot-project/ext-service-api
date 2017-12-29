@@ -45,7 +45,13 @@ def urban(word):
     u = requests.get('https://mashape-community-urban-dictionary.p.mashape.com/define?term={0}'.format(word), headers=urban_headers)
     if u.status_code == 200:
         d = u.json()
-        d = d['list'][0]
+
+        if d['list']:
+            d = d['list'][0]
+        else:
+            res = {'error': 'NotFound'}
+            return jsonify(res), 404
+
         res = {
             'definition': d['definition'],
             'link': d['permalink'],
